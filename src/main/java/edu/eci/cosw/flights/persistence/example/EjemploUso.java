@@ -34,6 +34,8 @@ public class EjemploUso {
         Transaction tx=session.beginTransaction();
 
         
+        System.out.println(session.createQuery("from Vuelo").list());
+        
         //TRANSACCION CON HIBERNATE
         
         tx.commit();
