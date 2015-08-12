@@ -33,11 +33,6 @@ public class EjemploUso {
         Session session=sessionFactory.openSession();        
         Transaction tx=session.beginTransaction();
 
-        Query q=session.createQuery("select distinc p from Vuelo as v inner join v.pasajeros as p");
-        
-        
-        
-        System.out.println(q.list());
         
         //TRANSACCION CON HIBERNATE
         
