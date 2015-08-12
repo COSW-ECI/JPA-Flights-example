@@ -1,4 +1,4 @@
-package edu.eci.cosw.flightsex.persistence.model;
+package edu.eci.cosw.flights.persistence.model;
 // Generated Aug 12, 2015 11:13:25 AM by Hibernate Tools 4.3.1
 
 

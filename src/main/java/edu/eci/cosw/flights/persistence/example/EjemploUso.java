@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.cosw.hbintro.ejemplos;
+package edu.eci.cosw.flights.persistence.example;
 
-import edu.eci.cosw.flightsex.persistence.model.Vuelo;
+import edu.eci.cosw.flights.persistence.model.Vuelo;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
