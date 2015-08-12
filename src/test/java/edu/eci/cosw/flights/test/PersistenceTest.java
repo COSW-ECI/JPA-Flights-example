@@ -16,12 +16,17 @@
  */
 package edu.eci.cosw.flights.test;
 
+import edu.eci.cosw.flights.persistence.model.Aeronave;
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -30,7 +35,7 @@ import static org.junit.Assert.*;
  *
  * @author hcadavid
  */
-public class SampleTest {
+public class PersistenceTest {
     
 
     private SessionFactory sessionFactory;
@@ -66,6 +71,36 @@ public class SampleTest {
         session.close();
         sessionFactory.close();
     }
+    
+    
+     /**
+     * EJEMPLO DE PRUEBA
+     * Objetivo: Probar que el mapeo permita hacer persistentes
+     * aeronaves, y luego realizar cálculos consistentes con las
+     * mismas.
+     * Estado inicial: base de datos vacía.
+     * Prueba: La consulta de la sumatora de la capacidad de las aeronaves
+     * debe ser consistente con los capacidades ingresadas inicialmente.
+     * 
+     */
+    @Test
+    public void aeronavePersistenceTest(){
+        Transaction tx=session.beginTransaction();
+        Aeronave an=new Aeronave(1111, 1960, "AK99", 100);
+        session.save(an);
+        Aeronave an2=new Aeronave(2222, 1970, "AK99", 110);
+        session.save(an2);
+               
+        Query q=session.createQuery("select sum(an.capacidad) from Aeronave an");
+        List<Long> res=q.list();
+        
+        Assert.assertEquals("La prueba de consultar"
+                + " la capacidad total de las aeronaves"
+                + " no da un resultado consistente", res.get(0),new Long(210));                
+        
+        tx.commit();        
+    }
+
     
     
 }

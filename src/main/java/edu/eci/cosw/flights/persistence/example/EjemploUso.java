@@ -6,6 +6,7 @@
 package edu.eci.cosw.flights.persistence.example;
 
 import edu.eci.cosw.flights.persistence.model.Vuelo;
+import java.sql.Date;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -34,7 +35,10 @@ public class EjemploUso {
         Transaction tx=session.beginTransaction();
 
         
-        System.out.println(session.createQuery("from Vuelo").list());
+        System.out.println(session.createQuery("select v.idvuelo, (v.pasajeros.size) from Vuelo v where v.fecha > current_timestamp()").list().get(0));
+        
+        
+//System.out.println(session.createQuery("select v.piloto.nombre, min(v.piloto.anyoNacimiento) from Vuelo as v").list().get(0));
         
         //TRANSACCION CON HIBERNATE
         

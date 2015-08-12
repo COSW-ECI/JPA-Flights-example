@@ -8,10 +8,10 @@
     <property name="hibernate.hbm2ddl.auto">create</property>
     <property name="hibernate.show_sql">true</property>
 
-    <mapping class="edu.eci.cosw.flightsex.persistence.model.Piloto"/>
-    <mapping class="edu.eci.cosw.flightsex.persistence.model.Vuelo"/>
-    <mapping class="edu.eci.cosw.flightsex.persistence.model.Pasajero"/>
-    <mapping class="edu.eci.cosw.flightsex.persistence.model.Aeronave"/>
+    <mapping class="edu.eci.cosw.flights.persistence.model.Piloto"/>
+    <mapping class="edu.eci.cosw.flights.persistence.model.Vuelo"/>
+    <mapping class="edu.eci.cosw.flights.persistence.model.Pasajero"/>
+    <mapping class="edu.eci.cosw.flights.persistence.model.Aeronave"/>
 
   </session-factory>  
 </hibernate-configuration>
