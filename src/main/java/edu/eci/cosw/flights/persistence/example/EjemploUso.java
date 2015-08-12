@@ -33,12 +33,7 @@ public class EjemploUso {
         
         Session session=sessionFactory.openSession();        
         Transaction tx=session.beginTransaction();
-
         
-        System.out.println(session.createQuery("select v.idvuelo, (v.pasajeros.size) from Vuelo v where v.fecha > current_timestamp()").list().get(0));
-        
-        
-//System.out.println(session.createQuery("select v.piloto.nombre, min(v.piloto.anyoNacimiento) from Vuelo as v").list().get(0));
         
         //TRANSACCION CON HIBERNATE
         
